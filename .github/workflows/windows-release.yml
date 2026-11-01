@@ -1,0 +1,71 @@
+name: Publish Windows update
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: duel-vault-windows-release
+  cancel-in-progress: false
+jobs:
+  build-and-publish:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Validate release destination
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $private = gh api "repos/$env:GITHUB_REPOSITORY" --jq .private
+          if ($LASTEXITCODE -ne 0 -or $private -ne 'false') { throw 'A public release repository is required for login-free updates.' }
+          $version = node -p "require('./package.json').version"
+          if ($env:GITHUB_REF_TYPE -eq 'tag' -and $env:GITHUB_REF_NAME -ne "v$version") { throw 'Tag and package.json version do not match.' }
+          if ($env:GITHUB_REF_TYPE -ne 'tag') { throw 'Select the vVERSION tag when running this workflow manually.' }
+      - run: npm ci
+      - run: npm test
+      - name: Configure trusted update channel
+        env:
+          UPDATE_SIGNING_PRIVATE_KEY: ${{ secrets.UPDATE_SIGNING_PRIVATE_KEY }}
+        shell: pwsh
+        run: |
+          if (-not $env:UPDATE_SIGNING_PRIVATE_KEY) { throw 'Missing UPDATE_SIGNING_PRIVATE_KEY secret' }
+          node scripts/configure-github-channel.cjs
+      - run: npm run dist:win
+      - name: Sign update description
+        env:
+          UPDATE_SIGNING_PRIVATE_KEY: ${{ secrets.UPDATE_SIGNING_PRIVATE_KEY }}
+        shell: pwsh
+        run: |
+          $keyPath = Join-Path $env:RUNNER_TEMP 'duel-vault-update-private.pem'
+          [System.IO.File]::WriteAllText($keyPath, $env:UPDATE_SIGNING_PRIVATE_KEY)
+          try {
+            $version = node -p "require('./package.json').version"
+            $installer = "Duel-Vault-Setup-$version-x64.exe"
+            $url = "https://github.com/$env:GITHUB_REPOSITORY/releases/download/v$version/$installer"
+            node scripts/sign-update.cjs manifest "release/$installer" $url $keyPath release/latest.json
+            if ($LASTEXITCODE -ne 0) { throw 'Manifest signing failed' }
+          } finally { Remove-Item $keyPath -Force -ErrorAction SilentlyContinue }
+      - name: Publish installable update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: pwsh
+        run: |
+          $version = node -p "require('./package.json').version"
+          $installer = "release/Duel-Vault-Setup-$version-x64.exe"
+          gh release view "v$version" --repo $env:GITHUB_REPOSITORY *> $null
+          if ($LASTEXITCODE -eq 0) { throw 'This version is already published. Increase the version instead of replacing an installer.' }
+          gh release create "v$version" $installer release/latest.json --repo $env:GITHUB_REPOSITORY --title "Duel Vault $version" --generate-notes --verify-tag --latest
+          if ($LASTEXITCODE -ne 0) { throw 'Publishing failed' }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Duel-Vault-Windows
+          path: |
+            release/*.exe
+            release/latest.json
+          retention-days: 30

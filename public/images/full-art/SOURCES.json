@@ -1,0 +1,581 @@
+{
+  "copyright": "Card artwork © Konami. Product images from TCGplayer and PriceCharting; metadata via TCGCSV.",
+  "images": [
+    {
+      "key": "Magnificent Monsters|MAMO-EN015|Starlight Rare",
+      "product_id": 714669,
+      "source": "https://www.tcgplayer.com/product/714669/yugioh-magnificent-monsters-astrograph-sorcerer-the-starfrost-magician-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714669_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN015|Ultra Rare · Full Art",
+      "product_id": 714730,
+      "source": "https://www.tcgplayer.com/product/714730/yugioh-magnificent-monsters-astrograph-sorcerer-the-starfrost-magician-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714730_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN081|Starlight Rare",
+      "product_id": 719928,
+      "source": "https://www.tcgplayer.com/product/719928/yugioh-beyond-the-brave-audhumla-progenitor-of-the-frozen-expanse-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719928_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN081|Ultra Rare · Full Art",
+      "product_id": 719927,
+      "source": "https://www.tcgplayer.com/product/719927/yugioh-beyond-the-brave-audhumla-progenitor-of-the-frozen-expanse-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719927_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN142|Starlight Rare",
+      "product_id": 695705,
+      "source": "https://www.pricecharting.com/game/yugioh-battles-of-legend-glorious-gallery/borrelend-dragon-starlight-rare-blgg-en142",
+      "image_source": "https://storage.googleapis.com/images.pricecharting.com/corrmanfxds4wln5kuw6/1600.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN142|Ultra Rare",
+      "product_id": 695704,
+      "source": "https://www.tcgplayer.com/product/695704/yugioh-battles-of-legend-glorious-gallery-borrelend-dragon",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695704_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN143|Starlight Rare",
+      "product_id": 695707,
+      "source": "https://www.tcgplayer.com/product/695707/yugioh-battles-of-legend-glorious-gallery-chaos-angel-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695707_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN143|Ultra Rare",
+      "product_id": 695706,
+      "source": "https://www.tcgplayer.com/product/695706/yugioh-battles-of-legend-glorious-gallery-chaos-angel",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695706_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN138|Starlight Rare",
+      "product_id": 695697,
+      "source": "https://www.tcgplayer.com/product/695697/yugioh-battles-of-legend-glorious-gallery-chimeratech-megafleet-dragon-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695697_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN138|Ultra Rare",
+      "product_id": 695696,
+      "source": "https://www.tcgplayer.com/product/695696/yugioh-battles-of-legend-glorious-gallery-chimeratech-megafleet-dragon",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695696_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN044|Starlight Rare",
+      "product_id": 719889,
+      "source": "https://www.tcgplayer.com/product/719889/yugioh-beyond-the-brave-cxyz-hope-chaos-barian-dragon-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719889_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN044|Ultra Rare · Full Art",
+      "product_id": 719888,
+      "source": "https://www.tcgplayer.com/product/719888/yugioh-beyond-the-brave-cxyz-hope-chaos-barian-dragon-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719888_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN017|Starlight Rare",
+      "product_id": 714671,
+      "source": "https://www.tcgplayer.com/product/714671/yugioh-magnificent-monsters-cyberse-code-magician-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714671_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN017|Ultra Rare · Full Art",
+      "product_id": 714734,
+      "source": "https://www.tcgplayer.com/product/714734/yugioh-magnificent-monsters-cyberse-code-magician-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714734_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN018|Starlight Rare",
+      "product_id": 714672,
+      "source": "https://www.tcgplayer.com/product/714672/yugioh-magnificent-monsters-cyberse-contract-witch-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714672_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN018|Ultra Rare · Full Art",
+      "product_id": 714736,
+      "source": "https://www.tcgplayer.com/product/714736/yugioh-magnificent-monsters-cyberse-contract-witch-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714736_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN003|Starlight Rare",
+      "product_id": 714657,
+      "source": "https://www.tcgplayer.com/product/714657/yugioh-magnificent-monsters-dark-magical-curtain-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714657_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN003|Ultra Rare · Full Art",
+      "product_id": 714706,
+      "source": "https://www.tcgplayer.com/product/714706/yugioh-magnificent-monsters-dark-magical-curtain-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714706_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN001|Starlight Rare",
+      "product_id": 714655,
+      "source": "https://www.tcgplayer.com/product/714655/yugioh-magnificent-monsters-dark-magician-the-pharaohs-servant-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714655_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN001|Ultra Rare · Full Art",
+      "product_id": 714702,
+      "source": "https://www.tcgplayer.com/product/714702/yugioh-magnificent-monsters-dark-magician-the-pharaohs-servant-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714702_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN016|Starlight Rare",
+      "product_id": 714670,
+      "source": "https://www.tcgplayer.com/product/714670/yugioh-magnificent-monsters-decode-talker-integration-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714670_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN016|Ultra Rare · Full Art",
+      "product_id": 714732,
+      "source": "https://www.tcgplayer.com/product/714732/yugioh-magnificent-monsters-decode-talker-integration-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714732_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN146|Starlight Rare",
+      "product_id": 695713,
+      "source": "https://www.tcgplayer.com/product/695713/yugioh-battles-of-legend-glorious-gallery-dominus-impulse-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695713_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN146|Ultra Rare",
+      "product_id": 695712,
+      "source": "https://www.tcgplayer.com/product/695712/yugioh-battles-of-legend-glorious-gallery-dominus-impulse",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695712_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN150|Starlight Rare",
+      "product_id": 687331,
+      "source": "https://www.tcgplayer.com/product/687331/yugioh-rarity-collection-5-dominus-purge-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687331_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN150|Ultra Rare",
+      "product_id": 687332,
+      "source": "https://www.tcgplayer.com/product/687332/yugioh-rarity-collection-5-dominus-purge-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687332_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN137|Starlight Rare",
+      "product_id": 695695,
+      "source": "https://www.tcgplayer.com/product/695695/yugioh-battles-of-legend-glorious-gallery-dragon-master-magia-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695695_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN137|Ultra Rare",
+      "product_id": 695694,
+      "source": "https://www.tcgplayer.com/product/695694/yugioh-battles-of-legend-glorious-gallery-dragon-master-magia",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695694_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN028|Starlight Rare",
+      "product_id": 719869,
+      "source": "https://www.tcgplayer.com/product/719869/yugioh-beyond-the-brave-elemental-saga-doriado-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719869_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN028|Ultra Rare",
+      "product_id": 719868,
+      "source": "https://www.tcgplayer.com/product/719868/yugioh-beyond-the-brave-elemental-saga-doriado-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719868_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN005|Starlight Rare",
+      "product_id": 714659,
+      "source": "https://www.tcgplayer.com/product/714659/yugioh-magnificent-monsters-favorite-hero-flame-wingman-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714659_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN005|Ultra Rare · Full Art",
+      "product_id": 714710,
+      "source": "https://www.tcgplayer.com/product/714710/yugioh-magnificent-monsters-favorite-hero-flame-wingman-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714710_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN004|Starlight Rare",
+      "product_id": 714658,
+      "source": "https://www.tcgplayer.com/product/714658/yugioh-magnificent-monsters-favorite-hero-shining-flare-wingman-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714658_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN004|Ultra Rare · Full Art",
+      "product_id": 714708,
+      "source": "https://www.tcgplayer.com/product/714708/yugioh-magnificent-monsters-favorite-hero-shining-flare-wingman-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714708_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN146|Starlight Rare",
+      "product_id": 687323,
+      "source": "https://www.tcgplayer.com/product/687323/yugioh-rarity-collection-5-firewall-dragon-singularity-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687323_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN146|Ultra Rare",
+      "product_id": 687324,
+      "source": "https://www.tcgplayer.com/product/687324/yugioh-rarity-collection-5-firewall-dragon-singularity-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687324_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN012|Starlight Rare",
+      "product_id": 714666,
+      "source": "https://www.tcgplayer.com/product/714666/yugioh-magnificent-monsters-gagaga-girl-cell-phone-subtraction-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714666_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN012|Ultra Rare · Full Art",
+      "product_id": 714724,
+      "source": "https://www.tcgplayer.com/product/714724/yugioh-magnificent-monsters-gagaga-girl-cell-phone-subtraction-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714724_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN011|Starlight Rare",
+      "product_id": 714665,
+      "source": "https://www.tcgplayer.com/product/714665/yugioh-magnificent-monsters-gagaga-magician-gagaga-magic-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714665_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN011|Ultra Rare · Full Art",
+      "product_id": 714722,
+      "source": "https://www.tcgplayer.com/product/714722/yugioh-magnificent-monsters-gagaga-magician-gagaga-magic-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714722_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN014|Starlight Rare",
+      "product_id": 714668,
+      "source": "https://www.tcgplayer.com/product/714668/yugioh-magnificent-monsters-horoscope-sorcerer-the-stargazer-magician-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714668_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN014|Ultra Rare · Full Art",
+      "product_id": 714728,
+      "source": "https://www.tcgplayer.com/product/714728/yugioh-magnificent-monsters-horoscope-sorcerer-the-stargazer-magician-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714728_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN002|Starlight Rare",
+      "product_id": 714656,
+      "source": "https://www.tcgplayer.com/product/714656/yugioh-magnificent-monsters-kuriboh-multiply-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714656_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN002|Ultra Rare · Full Art",
+      "product_id": 714704,
+      "source": "https://www.tcgplayer.com/product/714704/yugioh-magnificent-monsters-kuriboh-multiply-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714704_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN147|Starlight Rare",
+      "product_id": 687325,
+      "source": "https://www.tcgplayer.com/product/687325/yugioh-rarity-collection-5-kurikara-divincarnate-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687325_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN147|Ultra Rare",
+      "product_id": 687326,
+      "source": "https://www.tcgplayer.com/product/687326/yugioh-rarity-collection-5-kurikara-divincarnate-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687326_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN148|Starlight Rare",
+      "product_id": 687327,
+      "source": "https://www.tcgplayer.com/product/687327/yugioh-rarity-collection-5-mirrorjade-the-iceblade-dragon-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687327_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN148|Ultra Rare",
+      "product_id": 687328,
+      "source": "https://www.tcgplayer.com/product/687328/yugioh-rarity-collection-5-mirrorjade-the-iceblade-dragon-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687328_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN010|Starlight Rare",
+      "product_id": 714664,
+      "source": "https://www.tcgplayer.com/product/714664/yugioh-magnificent-monsters-number-39-utopia-emissary-of-light-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714664_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN010|Ultra Rare · Full Art",
+      "product_id": 714720,
+      "source": "https://www.tcgplayer.com/product/714720/yugioh-magnificent-monsters-number-39-utopia-emissary-of-light-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714720_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN140|Starlight Rare",
+      "product_id": 695701,
+      "source": "https://www.tcgplayer.com/product/695701/yugioh-battles-of-legend-glorious-gallery-number-62-galaxy-eyes-prime-photon-dragon-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695701_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN140|Ultra Rare",
+      "product_id": 695700,
+      "source": "https://www.tcgplayer.com/product/695700/yugioh-battles-of-legend-glorious-gallery-number-62-galaxy-eyes-prime-photon-dragon",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695700_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN144|Starlight Rare",
+      "product_id": 687319,
+      "source": "https://www.tcgplayer.com/product/687319/yugioh-rarity-collection-5-number-99-utopia-dragonar-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687319_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN144|Ultra Rare",
+      "product_id": 687320,
+      "source": "https://www.tcgplayer.com/product/687320/yugioh-rarity-collection-5-number-99-utopia-dragonar-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687320_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN145|Starlight Rare",
+      "product_id": 687321,
+      "source": "https://www.tcgplayer.com/product/687321/yugioh-rarity-collection-5-odd-eyes-arcray-dragon-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687321_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN145|Ultra Rare",
+      "product_id": 687322,
+      "source": "https://www.tcgplayer.com/product/687322/yugioh-rarity-collection-5-odd-eyes-arcray-dragon-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687322_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN013|Starlight Rare",
+      "product_id": 714667,
+      "source": "https://www.tcgplayer.com/product/714667/yugioh-magnificent-monsters-odd-eyes-pendulum-dragon-four-heavenly-dragons-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714667_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN013|Ultra Rare · Full Art",
+      "product_id": 714726,
+      "source": "https://www.tcgplayer.com/product/714726/yugioh-magnificent-monsters-odd-eyes-pendulum-dragon-four-heavenly-dragons-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714726_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN139|Starlight Rare",
+      "product_id": 695699,
+      "source": "https://www.tcgplayer.com/product/695699/yugioh-battles-of-legend-glorious-gallery-red-supernova-dragon-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695699_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN139|Ultra Rare",
+      "product_id": 695698,
+      "source": "https://www.tcgplayer.com/product/695698/yugioh-battles-of-legend-glorious-gallery-red-supernova-dragon",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695698_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN036|Starlight Rare",
+      "product_id": 719879,
+      "source": "https://www.tcgplayer.com/product/719879/yugioh-beyond-the-brave-red-eyes-black-dragon-exceed-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719879_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN036|Ultra Rare · Full Art",
+      "product_id": 719878,
+      "source": "https://www.tcgplayer.com/product/719878/yugioh-beyond-the-brave-red-eyes-black-dragon-exceed-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719878_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN141|Starlight Rare",
+      "product_id": 687313,
+      "source": "https://www.tcgplayer.com/product/687313/yugioh-rarity-collection-5-red-eyes-dark-dragoon-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687313_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN141|Ultra Rare",
+      "product_id": 687314,
+      "source": "https://www.tcgplayer.com/product/687314/yugioh-rarity-collection-5-red-eyes-dark-dragoon-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687314_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN143|Starlight Rare",
+      "product_id": 687317,
+      "source": "https://www.tcgplayer.com/product/687317/yugioh-rarity-collection-5-shooting-quasar-dragon-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687317_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN143|Ultra Rare",
+      "product_id": 687318,
+      "source": "https://www.tcgplayer.com/product/687318/yugioh-rarity-collection-5-shooting-quasar-dragon-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687318_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN145|Starlight Rare",
+      "product_id": 695711,
+      "source": "https://www.tcgplayer.com/product/695711/yugioh-battles-of-legend-glorious-gallery-spirit-charmers-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695711_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN145|Ultra Rare",
+      "product_id": 695710,
+      "source": "https://www.tcgplayer.com/product/695710/yugioh-battles-of-legend-glorious-gallery-spirit-charmers",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695710_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN007|Starlight Rare",
+      "product_id": 714661,
+      "source": "https://www.tcgplayer.com/product/714661/yugioh-magnificent-monsters-stardust-dragon-victim-sanctuary-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714661_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN007|Ultra Rare · Full Art",
+      "product_id": 714714,
+      "source": "https://www.tcgplayer.com/product/714714/yugioh-magnificent-monsters-stardust-dragon-victim-sanctuary-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714714_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN008|Starlight Rare",
+      "product_id": 714662,
+      "source": "https://www.tcgplayer.com/product/714662/yugioh-magnificent-monsters-starjunk-synchron-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714662_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN008|Ultra Rare · Full Art",
+      "product_id": 714716,
+      "source": "https://www.tcgplayer.com/product/714716/yugioh-magnificent-monsters-starjunk-synchron-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714716_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN149|Starlight Rare",
+      "product_id": 687329,
+      "source": "https://www.tcgplayer.com/product/687329/yugioh-rarity-collection-5-super-polymerization-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687329_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN149|Ultra Rare",
+      "product_id": 687330,
+      "source": "https://www.tcgplayer.com/product/687330/yugioh-rarity-collection-5-super-polymerization-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687330_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN141|Starlight Rare",
+      "product_id": 695703,
+      "source": "https://www.tcgplayer.com/product/695703/yugioh-battles-of-legend-glorious-gallery-supreme-king-z-arc-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695703_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN141|Ultra Rare",
+      "product_id": 695702,
+      "source": "https://www.tcgplayer.com/product/695702/yugioh-battles-of-legend-glorious-gallery-supreme-king-z-arc",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695702_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN009|Starlight Rare",
+      "product_id": 714663,
+      "source": "https://www.tcgplayer.com/product/714663/yugioh-magnificent-monsters-synchro-emergency-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714663_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN009|Ultra Rare · Full Art",
+      "product_id": 714718,
+      "source": "https://www.tcgplayer.com/product/714718/yugioh-magnificent-monsters-synchro-emergency-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714718_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN027|Starlight Rare",
+      "product_id": 719866,
+      "source": "https://www.tcgplayer.com/product/719866/yugioh-beyond-the-brave-the-great-gallant-bandit-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719866_in_1000x1000.jpg"
+    },
+    {
+      "key": "Beyond the Brave|BETB-EN027|Ultra Rare",
+      "product_id": 719865,
+      "source": "https://www.tcgplayer.com/product/719865/yugioh-beyond-the-brave-the-great-gallant-bandit-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/719865_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN144|Starlight Rare",
+      "product_id": 695709,
+      "source": "https://www.tcgplayer.com/product/695709/yugioh-battles-of-legend-glorious-gallery-underworld-goddess-of-the-closed-world-starlight-rare",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695709_in_1000x1000.jpg"
+    },
+    {
+      "key": "Battles of Legend: Glorious Gallery|BLGG-EN144|Ultra Rare",
+      "product_id": 695708,
+      "source": "https://www.tcgplayer.com/product/695708/yugioh-battles-of-legend-glorious-gallery-underworld-goddess-of-the-closed-world",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/695708_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN142|Starlight Rare",
+      "product_id": 687315,
+      "source": "https://www.tcgplayer.com/product/687315/yugioh-rarity-collection-5-wake-up-your-elemental-hero-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687315_in_1000x1000.jpg"
+    },
+    {
+      "key": "Rarity Collection 5|RA05-EN142|Ultra Rare",
+      "product_id": 687316,
+      "source": "https://www.tcgplayer.com/product/687316/yugioh-rarity-collection-5-wake-up-your-elemental-hero-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/687316_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN006|Starlight Rare",
+      "product_id": 714660,
+      "source": "https://www.tcgplayer.com/product/714660/yugioh-magnificent-monsters-winged-kuriboh-sabatiel-lv10-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714660_in_1000x1000.jpg"
+    },
+    {
+      "key": "Magnificent Monsters|MAMO-EN006|Ultra Rare · Full Art",
+      "product_id": 714712,
+      "source": "https://www.tcgplayer.com/product/714712/yugioh-magnificent-monsters-winged-kuriboh-sabatiel-lv10-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/714712_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN028|Starlight Rare",
+      "product_id": 702388,
+      "source": "https://www.tcgplayer.com/product/702388/yugioh-chaos-origins-black-luster-soldier-soldier-of-light-and-darkness-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702388_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN028|Ultra Rare",
+      "product_id": 702386,
+      "source": "https://www.tcgplayer.com/product/702386/yugioh-chaos-origins-black-luster-soldier-soldier-of-light-and-darkness-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702386_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN027|Starlight Rare",
+      "product_id": 702385,
+      "source": "https://www.tcgplayer.com/product/702385/yugioh-chaos-origins-magician-of-dark-chaos-black-chaos-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702385_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN027|Ultra Rare",
+      "product_id": 702383,
+      "source": "https://www.tcgplayer.com/product/702383/yugioh-chaos-origins-magician-of-dark-chaos-black-chaos-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702383_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN022|Starlight Rare",
+      "product_id": 702378,
+      "source": "https://www.tcgplayer.com/product/702378/yugioh-chaos-origins-phara-the-primordial-goddess-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702378_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN022|Ultra Rare",
+      "product_id": 702376,
+      "source": "https://www.tcgplayer.com/product/702376/yugioh-chaos-origins-phara-the-primordial-goddess-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702376_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN029|Starlight Rare",
+      "product_id": 702391,
+      "source": "https://www.pricecharting.com/game/yugioh-chaos-origins/the-chaotic-phantasmal-sacred-beasts-starlight-rare-cori-en029",
+      "image_source": "https://storage.googleapis.com/images.pricecharting.com/correvcbzwhbt7wcpyq3/1600.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN029|Ultra Rare",
+      "product_id": 702389,
+      "source": "https://www.tcgplayer.com/product/702389/yugioh-chaos-origins-the-chaotic-phantasmal-sacred-beasts",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702389_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN081|Starlight Rare",
+      "product_id": 702447,
+      "source": "https://www.tcgplayer.com/product/702447/yugioh-chaos-origins-witness-of-the-ancient-starlight-rare-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702447_in_1000x1000.jpg"
+    },
+    {
+      "key": "Chaos Origins|CORI-EN081|Ultra Rare · Full Art",
+      "product_id": 702446,
+      "source": "https://www.tcgplayer.com/product/702446/yugioh-chaos-origins-witness-of-the-ancient-extended-art",
+      "image_source": "https://tcgplayer-cdn.tcgplayer.com/product/702446_in_1000x1000.jpg"
+    }
+  ]
+}
