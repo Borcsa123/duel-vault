@@ -22,8 +22,8 @@ Function .onInit
 FunctionEnd
 Section "Duel Vault"
  SetOutPath "$INSTDIR"
- File /r "${PROJECT_DIR}/release/win-unpacked/*"
- File /oname=duel-vault.ico "${PROJECT_DIR}/assets/icon.ico"
+  File /r "${PROJECT_DIR}\release\win-unpacked\*"
+ File /oname=duel-vault.ico "${PROJECT_DIR}\assets\icon.ico"
  WriteUninstaller "$INSTDIR\Uninstall.exe"
  CreateDirectory "$SMPROGRAMS\Duel Vault"
  CreateShortcut "$SMPROGRAMS\Duel Vault\Duel Vault.lnk" "$INSTDIR\Duel Vault.exe" "" "$INSTDIR\duel-vault.ico"
@@ -43,7 +43,7 @@ Function .onInstSuccess
 FunctionEnd
 Section "Uninstall"
  SetShellVarContext current
- !include "${PROJECT_DIR}/build/uninstall-files.nsh"
+ !include "${PROJECT_DIR}\build\uninstall-files.nsh"
  Delete "$INSTDIR\duel-vault.ico"
  Delete "$INSTDIR\Uninstall.exe"
  RMDir "$INSTDIR"
