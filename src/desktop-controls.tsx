@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react';
 import {Download,Upload,RefreshCw,Folder,ChevronRight,LoaderCircle} from 'lucide-react';
 type Update={status:string;message:string;version:string;progress?:number};
 type Result={ok?:boolean;canceled?:boolean};
-declare global{interface Window{duelVaultDesktop?:{info:()=>Promise<{version:string;dataPath:string;update:Update}>;exportBackup:()=>Promise<Result>;importBackup:()=>Promise<Result>;checkUpdates:()=>Promise<Update>;openDataFolder:()=>Promise<string>;onUpdate:(callback:(state:Update)=>void)=>()=>void}}}
+declare global{interface Window{duelVaultDesktop?:{setPriceKey:(key:string)=>Promise<{ok:boolean}>;info:()=>Promise<{version:string;dataPath:string;update:Update}>;exportBackup:()=>Promise<Result>;importBackup:()=>Promise<Result>;checkUpdates:()=>Promise<Update>;openDataFolder:()=>Promise<string>;onUpdate:(callback:(state:Update)=>void)=>()=>void}}}
 export default function DesktopControls({onRestored}:{onRestored:()=>void}){
  const [state,State]=useState<Update|null>(null),[message,Message]=useState(''),[busy,Busy]=useState(false),[active,Active]=useState('');
  useEffect(()=>{const api=window.duelVaultDesktop;if(!api)return;api.info().then(info=>State(info.update)).catch(()=>Message('Az alkalmazás adatai most nem érhetők el.'));return api.onUpdate(State);},[]);

@@ -1,5 +1,6 @@
 const {contextBridge,ipcRenderer}=require('electron');
 contextBridge.exposeInMainWorld('duelVaultDesktop',{
+ setPriceKey:key=>ipcRenderer.invoke('desktop:set-price-key',key),
  info:()=>ipcRenderer.invoke('desktop:info'),
  exportBackup:()=>ipcRenderer.invoke('desktop:export'),
  importBackup:()=>ipcRenderer.invoke('desktop:import'),
