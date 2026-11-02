@@ -54,22 +54,31 @@ function CanvasFoil({kind,rotation,tilt,light,intensity,fullArt=false}:{fullArt?
  const ref=useRef<HTMLCanvasElement>(null);const state=useRef({rotation,tilt,light,intensity});state.current={rotation,tilt,light,intensity};
  useEffect(()=>{const canvas=ref.current;if(!canvas)return;const ctx=canvas.getContext('2d');if(!ctx)return;let seed=94321;function random(){seed=(seed*16807)%2147483647;return seed/2147483647}const facets=Array.from({length:kind==='starlight'?3200:kind==='quarter'?5200:kind==='secret'?6200:3000},()=>({x:random(),y:random(),normal:random()*Math.PI*2,hue:random()*360,size:.5+random()*.8}));const full=fullArt||['starlight','quarter','prismatic','parallel','collector'].includes(kind);const rare=['common','rare'].includes(kind);const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;let frame:number;let last=0;const started=performance.now();
  function draw(now:number){frame=requestAnimationFrame(draw);if(now-last<32)return;last=now;if(!canvas||!ctx)return;const w=Math.max(1,Math.round(canvas.clientWidth*Math.min(window.devicePixelRatio||1,2))),h=Math.max(1,Math.round(canvas.clientHeight*Math.min(window.devicePixelRatio||1,2)));if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}ctx.clearRect(0,0,w,h);if(rare)return;const d=state.current;const t=reduce?0:(now-started)/1000;const vx=Math.sin((d.rotation+d.tilt.y)*Math.PI/180),vy=d.tilt.x/40;const lx=d.light.x/100,ly=d.light.y/100;const power=d.intensity/100;const sweep=.5+Math.sin(t*.42)*.28+vx*.4+(lx-.5)*.24;ctx.save();if(full){ctx.beginPath();ctx.roundRect(w*(fullArt?.008:.025),h*(fullArt?.008:.015),w*(fullArt?.984:.95),h*(fullArt?.984:.97),6);ctx.clip();}else{ctx.beginPath();ctx.rect(w*.125,h*.195,w*.75,h*.51);ctx.clip();}
- // Sparse coloured Starlight facets; transparent space preserves printed detail.
+ // Transparent prismatic lattice: coloured cells brighten with angle, no white wash.
  if(kind==='starlight'){
+  const cell=w/60;
+  ctx.lineWidth=Math.max(.65,w/500);
+  for(let row=0;row<h/cell;row++)for(let col=0;col<60;col++){
+   const x=col*cell,y=row*cell;
+   const phase=col*.31+row*.23+vx*5+vy*4+t*.65;
+   const shine=Math.pow(Math.max(0,Math.cos(phase)),4);
+   const hue=(col*11+row*7+vx*140+vy*90+t*12)%360;
+   ctx.globalAlpha=(.10+shine*.50)*power;
+   ctx.strokeStyle=`hsl(${hue},95%,60%)`;
+   ctx.strokeRect(x+.6,y+.6,cell-1.2,cell-1.2);
+   if(shine>.5){ctx.globalAlpha=(shine-.5)*.55*power;ctx.fillStyle=ctx.strokeStyle;ctx.fillRect(x+1,y+1,cell-2,cell-2);}
+  }
   for(const f of facets){
-   const phase=f.normal+vx*4.5+vy*3.6+(lx-.5)*2+t*.32;
-   const reflect=Math.pow(Math.max(0,Math.cos(phase)),22);
-   const distance=f.x+f.y*.3-sweep-.08;
-   const beam=Math.exp(-distance*distance*15);
-   const alpha=Math.min(.58,reflect*(.22+beam*.58)*power);
-   if(alpha<.045)continue;
-   const x=f.x*w,y=f.y*h,size=Math.max(.5,w*.0025*f.size);
-   ctx.globalAlpha=alpha;ctx.strokeStyle=`hsl(${(f.hue+vx*95+t*3)%360},88%,57%)`;
-   ctx.lineWidth=Math.max(.55,w/650);ctx.beginPath();ctx.moveTo(x-size,y);ctx.lineTo(x+size,y);ctx.moveTo(x,y-size);ctx.lineTo(x,y+size);ctx.stroke();
-   ctx.globalAlpha=alpha*.65;ctx.fillStyle=ctx.strokeStyle;ctx.fillRect(x-.45,y-.45,.9,.9);
+   const phase=f.normal+vx*5+vy*4+(lx-.5)*2+t*.65;
+   const reflect=Math.pow(Math.max(0,Math.cos(phase)),9);
+   if(reflect<.2)continue;
+   const x=f.x*w,y=f.y*h,size=Math.max(1,w*.004*f.size);
+   ctx.globalAlpha=Math.min(.88,reflect*.88)*power;
+   ctx.strokeStyle=`hsl(${(f.hue+vx*95+t*12)%360},95%,68%)`;
+   ctx.lineWidth=Math.max(.7,w/450);ctx.beginPath();ctx.moveTo(x-size,y);ctx.lineTo(x+size,y);ctx.moveTo(x,y-size);ctx.lineTo(x,y+size);ctx.stroke();
   }
   ctx.restore();
-  if(full){ctx.save();ctx.globalCompositeOperation='destination-out';ctx.fillStyle=fullArt?'rgba(0,0,0,.82)':'rgba(0,0,0,.65)';ctx.fillRect(w*.055,h*.735,w*.89,h*.21);ctx.restore();}
+  if(full){ctx.save();ctx.globalCompositeOperation='destination-out';ctx.fillStyle=fullArt?'rgba(0,0,0,.40)':'rgba(0,0,0,.55)';ctx.fillRect(w*.055,h*.735,w*.89,h*.21);ctx.restore();}
   return;
  }
  // Angle-dependent diffraction band: colours have a narrow illuminated region.
