@@ -11,6 +11,7 @@ function createRouter({root,store,userDirectory,fetchImage=fetch}){const market=
    if(!['POST','DELETE'].includes(request.method))return json({error:'Érvénytelen művelet.'},405);
    const raw=await request.text();if(raw.length>4000)return json({error:'Túl nagy kérés.'},413);const body=JSON.parse(raw);
    if(request.method==='DELETE')return json(market.unlink(body.key));
+   if(body.automatic)return json(await market.automatic(body.card,body.edition,body.chosen));
    return json(await market.link(body.card,body.source));
   }
   if(url.pathname==='/api/collection'){

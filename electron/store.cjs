@@ -1,6 +1,7 @@
 const fs=require('node:fs');
 const path=require('node:path');
 function cleanText(value,max=500){if(typeof value!=='string'||!value||value.length>max)throw Error('Érvénytelen szöveges adat.');return value;}
+const EDITIONS=['Nem jelölt','1st Edition','Unlimited','Limited Edition'];
 function validate(raw){
  if(!raw||!Array.isArray(raw.cards)||!Array.isArray(raw.sets)||!Array.isArray(raw.singles))throw Error('Ez nem Duel Vault biztonsági mentés.');
  if(raw.cards.length>100000||raw.sets.length>5000||raw.singles.length>50000)throw Error('A mentés túl sok adatot tartalmaz.');
@@ -8,7 +9,8 @@ function validate(raw){
  const sets=raw.sets.map(row=>({name:cleanText(row.name,250)}));
  const singles=raw.singles.map(row=>{const result={};for(const key of ['key','name','code','rarity'])result[key]=cleanText(row[key]);if(typeof row.image!=='string'||row.image.length>500||row.image&&!/^https:\/\/images\.ygoprodeck\.com\/images\/(?:cards|cards_small)\/\d+\.jpg$/.test(row.image)&&!/^\/(?:images\/full-art\/\d+\.jpg|remote-images\/(?:cards|cards_small)\/\d+\.jpg)$/.test(row.image))throw Error('Érvénytelen lapkép.');result.image=row.image;return result;});
  for(const [rows,key] of [[cards,'cardKey'],[sets,'name'],[singles,'key']])if(new Set(rows.map(row=>row[key])).size!==rows.length)throw Error('A mentés ismétlődő azonosítókat tartalmaz.');
- return {schemaVersion:1,cards,sets,singles};
+ const cardEditions={};if(raw.cardEditions!==undefined){if(!raw.cardEditions||typeof raw.cardEditions!=='object'||Array.isArray(raw.cardEditions)||Object.keys(raw.cardEditions).length>100000)throw Error('Érvénytelen kiadásbeállítás.');for(const [key,value] of Object.entries(raw.cardEditions)){cleanText(key);if(!EDITIONS.includes(value))throw Error('Érvénytelen kiadás.');Object.defineProperty(cardEditions,key,{value,enumerable:true,writable:true,configurable:true});}}
+ return {schemaVersion:1,cards,sets,singles,cardEditions};
 }
 class Store{
  constructor(directory){this.directory=directory;this.file=path.join(directory,'collection.json');fs.mkdirSync(directory,{recursive:true});this.data=fs.existsSync(this.file)?validate(JSON.parse(fs.readFileSync(this.file,'utf8'))):{schemaVersion:1,cards:[],sets:[],singles:[]};}
@@ -17,7 +19,9 @@ class Store{
  commit(data,label='auto'){const next=validate(data);this.backup(label);const temp=this.file+'.tmp';const handle=fs.openSync(temp,'w',0o600);try{fs.writeFileSync(handle,JSON.stringify(next,null,2));fs.fsyncSync(handle);}finally{fs.closeSync(handle);}fs.renameSync(temp,this.file);this.data=next;return {ok:true};}
  restore(data){return this.commit(validate(data),'import-elott');}
  mutate(method,body){const next=this.snapshot();if(method==='POST'){
-  if(body.single){const c=body.single;validate({cards:[],sets:[],singles:[c]});if(!next.singles.some(row=>row.key===c.key))next.singles.push(c);}
+  if(body.cardEdition){const {key,edition}=body.cardEdition;cleanText(key);if(!EDITIONS.includes(edition))throw Error('Érvénytelen kiadás.');next.cardEditions=next.cardEditions||{};Object.defineProperty(next.cardEditions,key,{value:edition,enumerable:true,writable:true,configurable:true});}
+  else if(body.moveEdition){const {key,to}=body.moveEdition;cleanText(key);if(!EDITIONS.includes(to)||to==='Nem jelölt')throw Error('Érvénytelen célkiadás.');const from=next.cards.find(r=>r.cardKey===key+'|Nem jelölt');if(from&&from.quantity){let target=next.cards.find(r=>r.cardKey===key+'|'+to);if(!target){target={cardKey:key+'|'+to,quantity:0,wanted:0};next.cards.push(target);}if(target.quantity+from.quantity>999)throw Error('Legfeljebb 999 példány tárolható kiadásonként.');target.quantity+=from.quantity;target.wanted=target.wanted||from.wanted;from.quantity=0;from.wanted=0;}}
+  else if(body.single){const c=body.single;validate({cards:[],sets:[],singles:[c]});if(!next.singles.some(row=>row.key===c.key))next.singles.push(c);}
   else if(body.set){cleanText(body.set,250);if(!next.sets.some(row=>row.name===body.set))next.sets.push({name:body.set});}
   else{const row={cardKey:body.key,quantity:body.quantity,wanted:body.wanted?1:0};validate({cards:[row],sets:[],singles:[]});const index=next.cards.findIndex(item=>item.cardKey===row.cardKey);if(index===-1)next.cards.push(row);else next.cards[index]=row;}
  }else if(method==='DELETE'){

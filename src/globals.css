@@ -83,3 +83,5 @@ aside{overflow-y:auto}.sidebottom{flex-shrink:0;padding-bottom:4px}
 .advanced-foil.foil-starlight .starlight-rim{mix-blend-mode:normal;opacity:.62;padding:2px}
 .advanced-foil.foil-starlight .cardedge{border-color:#c9c9d08c;box-shadow:0 0 2px #9bbfe326}
 .advanced-foil.foil-starlight .cardfront>img{filter:none}
+
+.detail-edition{margin:18px 0;padding:14px;border:1px solid #465247;border-radius:12px;background:#222923}.detail-edition label{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:12px;color:#e2d3ad}.detail-edition select{font-size:12px;min-height:40px;border-radius:8px}.detail-edition .quantity{padding:12px 0 0;border:0}.detail-edition>.secondary{margin-top:12px;font-size:10px;width:100%;justify-content:center}.market-edition{display:block;font-size:10px;color:#d6c08a;margin:-7px 0 15px}.market-candidates{display:flex;flex-direction:column;gap:8px}.market-candidates .secondary{width:100%;text-align:left;min-height:52px}.market-candidates strong,.market-candidates small{display:block}.market-candidates small{font-size:10px;line-height:1.6;color:#a6b3a9;margin-top:5px}

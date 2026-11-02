@@ -1,6 +1,6 @@
 {
   "name": "duel-vault-desktop",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Duel Vault – helyi Yu-Gi-Oh! gyűjteménykezelő",
   "author": "Duel Vault",
   "private": true,
@@ -16,16 +16,17 @@
     "package:installer": "node scripts/package-installer.cjs"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "lucide-react": "1.31.0",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "6.0.2",
-    "vite": "8.0.13",
-    "typescript": "5.9.3",
     "electron": "45.2.1",
-    "electron-builder": "26.0.12"
+    "electron-builder": "26.0.12",
+    "typescript": "5.9.3",
+    "vite": "8.0.13"
   },
   "build": {
     "appId": "hu.duelvault.desktop",

@@ -1,0 +1,22 @@
+Duel Vault 1.0.6 – Automatikus Cardmarket-keresés és kiadásválasztó
+
+A ZIP tartalmát másold a GitHub/duel-vault mappába, felülírással.
+GitHub Desktop: Summary: Automatikus árkeresés és kiadások – 1.0.6; Commit to main; Push origin.
+History: a legújabb commithoz Create tag: v1.0.6; Push origin.
+A sikeres GitHub Actions futás után az alkalmazásban keresd a frissítést.
+
+Lap nagy nézete: A lapod kiadása – Nem jelölt / 1st Edition / Unlimited / Limited Edition.
+A választást a program elmenti és a keresésben használja. Kiadásonként külön darabszám jelölhető.
+A nem jelölt példányok a külön átsorolási gombbal mozgathatók; a választó önmagában nem mozgatja át a darabszámokat.
+
+A Cardmarket-keresés automatikus: név, szett, ritkaság, lapszám és kiadásbeállítás alapján.
+Egyértelmű találatot önállóan párosít; bizonytalan képi változatnál a találatokból választhatsz linkmásolás nélkül.
+A régi európai LOB és a Full Art változatoknál ellenőrző választás szükséges lehet.
+Az 1st Edition és Unlimited szűrő a Cardmarket keresésnek és a termékoldalnak is átadásra kerül.
+A Cardmarket napi árlistája összesített árakat ad, nem külön 1st Edition árakat. Ezt az árpanel jelzi.
+
+Korlát: a Cardmarket elutasíthatja a programozott keresést. Az élő próbát a fejlesztői környezetben elutasította; Windows alatti működés még ellenőrizendő.
+Blokkolásnál a program hibát jelez, nem készít kitalált párosítást vagy árat; a már párosított termékek a napi árlistából tovább működnek.
+
+Tartalmazza a modern gombokat, az árpanelt és grafikont, a Starlight 1.0.5 javítását is.
+Ellenőrzés: sikeres build; 21 sikeres teszt, köztük kiadásszűrés, téves egyezések kizárása, adatmegőrzés és az átsorolás teljes darabszámának megőrzése.
