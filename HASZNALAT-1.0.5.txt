@@ -1,0 +1,14 @@
+Duel Vault 1.0.5 – Starlight Rare fóliajavítás
+
+A ZIP tartalmát másold a GitHub/duel-vault mappába, engedélyezd a fájlok felülírását.
+GitHub Desktop: Summary: Starlight fólia javítása – 1.0.5; Commit to main; Push origin.
+History: a legújabb commithoz Create tag: v1.0.5; majd Push origin.
+A sikeres Actions futás után az alkalmazásban keress frissítést.
+
+Külön Starlight shader: kizárólag apró, átlátszó hátterű színes csillanások.
+Megszűnt a teljes lapot világosító screen keverés, fehér fedőfény és tükröződés.
+A tartalék Canvas2D megjelenítés is színes mikrocsillanásokat használ.
+A 100%-os intenzitás, a teljes felületű fólia és a forgatás megmarad.
+A betűk névfóliája továbbra is külön réteg.
+
+Ellenőrzés: sikeres build, 15 sikeres meglévő teszt. Böngészős vizuális ellenőrzés a helyi előnézet elérési korlátja miatt nem volt lehetséges.
