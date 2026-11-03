@@ -1,5 +1,5 @@
 const fs=require('node:fs'),path=require('node:path');
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.woff2':'font/woff2','.obj':'text/plain; charset=utf-8'};
 function localImage(url){return typeof url==='string'?url.replace(/^https:\/\/images\.ygoprodeck\.com\/images\//,'/remote-images/'):url;}
 function imagePaths(value){if(Array.isArray(value))return value.map(imagePaths);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,(key==='image_url_small'||key==='image')?localImage(item):imagePaths(item)]));return value;}
 function json(value,status=200){return new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}});}

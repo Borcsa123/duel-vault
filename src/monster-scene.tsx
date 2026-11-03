@@ -1,28 +1,29 @@
 import {useEffect,useRef,useState} from 'react';
 import * as T from 'three';
-import {createBlueEyes} from './blue-eyes-model.mjs';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import {OBJLoader} from 'three/addons/loaders/OBJLoader.js';
 export default function MonsterScene(){
- const host=useRef<HTMLDivElement>(null),reset=useRef<()=>void>(()=>{}),options=useRef({rotate:false,animate:true});
- const [error,Error]=useState(''),[rotate,Rotate]=useState(false),[animate,Animate]=useState(true);
- options.current={rotate,animate};
+ const host=useRef<HTMLDivElement>(null),reset=useRef<()=>void>(()=>{}),options=useRef({rotate:false});
+ const [error,Error]=useState(''),[loading,Loading]=useState(true),[rotate,Rotate]=useState(false);options.current={rotate};
  useEffect(()=>{
-  const el=host.current;if(!el)return;
-  let renderer:T.WebGLRenderer;try{renderer=new T.WebGLRenderer({antialias:true,alpha:true});}catch{Error('A 3D-megjelenítéshez WebGL szükséges. A Kártya fül továbbra is használható.');return;}
-  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.3;el.appendChild(renderer.domElement);
-  const scene=new T.Scene(),camera=new T.PerspectiveCamera(38,1,.1,100);camera.position.set(8,5,12);
-  const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(0,2.2,0);controls.enableDamping=true;controls.enablePan=false;controls.minDistance=5;controls.maxDistance=18;controls.maxPolarAngle=Math.PI*.83;controls.autoRotateSpeed=.7;
-  reset.current=()=>{camera.position.set(8,5,12);controls.target.set(0,2.2,0);controls.update();};
-  scene.add(new T.HemisphereLight(0xd5edff,0x142b39,2.2));
-  for(const [color,power,x,y,z] of [[0xffffff,4,3,7,5],[0x50caff,5,-5,3,-4],[0xe5ce99,2,4,2,-5]]){const light=new T.DirectionalLight(color,power);light.position.set(x,y,z);scene.add(light);}
-  const {dragon,neck,tail,wings}=createBlueEyes(T);scene.add(dragon);
-  const pedestal=new T.Mesh(new T.CylinderGeometry(2.1,2.3,.18,64),new T.MeshStandardMaterial({color:0x172b35,metalness:.7,roughness:.4}));pedestal.position.y=-.12;scene.add(pedestal);
-  const ring=new T.Mesh(new T.TorusGeometry(2.12,.022,8,100),new T.MeshBasicMaterial({color:0x65cfff}));ring.rotation.x=Math.PI/2;ring.position.y=-.01;scene.add(ring);
-  const resize=()=>{const w=Math.max(el.clientWidth,1),h=Math.max(el.clientHeight,1);renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();};const observer=new ResizeObserver(resize);observer.observe(el);resize();
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let frame=0;const start=performance.now();
-  function draw(now:number){frame=requestAnimationFrame(draw);const t=(now-start)/1000,motion=options.current.animate&&!reduced;dragon.position.y=motion?Math.sin(t*1.6)*.035:0;neck.rotation.x=motion?Math.sin(t*.9)*.025:0;tail.rotation.y=motion?Math.sin(t*.7)*.07:0;wings.forEach((w,i)=>w.rotation.z=motion?Math.sin(t*1.1)*.10*(i===0?1:-1):0);controls.autoRotate=options.current.rotate&&!reduced;controls.update();renderer.render(scene,camera);}
-  frame=requestAnimationFrame(draw);
-  return()=>{cancelAnimationFrame(frame);observer.disconnect();controls.dispose();scene.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();}});renderer.dispose();renderer.domElement.remove();reset.current=()=>{};};
+  const el=host.current;if(!el)return;let renderer:T.WebGLRenderer;
+  try{renderer=new T.WebGLRenderer({antialias:true,alpha:true});}catch{Error('A 3D-megjelenítéshez WebGL szükséges. A kártyanézet továbbra is használható.');Loading(false);return;}
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;el.appendChild(renderer.domElement);
+  const scene=new T.Scene(),camera=new T.PerspectiveCamera(38,1,.01,1000),controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.enablePan=false;controls.autoRotateSpeed=.6;controls.maxPolarAngle=Math.PI*.87;controls.target.set(0,0,0);
+  scene.add(new T.HemisphereLight(0xe6f4ff,0x253a52,2));const key=new T.DirectionalLight(0xffffff,1.35);key.position.set(4,6,8);scene.add(key);const rim=new T.DirectionalLight(0x78baff,1);rim.position.set(-5,3,-5);scene.add(rim);
+  let alive=true,model:T.Group|undefined,texture:T.Texture|undefined;const materials=new Set<T.Material>();
+  function disposeModel(group:T.Group){group.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});}
+  const textureLoader=new T.TextureLoader();texture=textureLoader.load('/models/blue-eyes/color.png',t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=renderer.capabilities.getMaxAnisotropy();},undefined,()=>{if(alive){Error('A modell színes textúrája nem tölthető be.');Loading(false);}});texture.colorSpace=T.SRGBColorSpace;
+  new OBJLoader().load('/models/blue-eyes/model.obj',group=>{
+   if(!alive){disposeModel(group);for(const m of materials)m.dispose();return;}
+   model=group;const mat=new T.MeshStandardMaterial({map:texture,color:0xffffff,metalness:.10,roughness:.57,side:T.DoubleSide});materials.add(mat);
+   group.traverse(o=>{if(o instanceof T.Mesh){for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();o.material=mat;}});
+   const box=new T.Box3().setFromObject(group),center=box.getCenter(new T.Vector3()),size=box.getSize(new T.Vector3());const scale=6/Math.max(size.x,size.y,size.z);group.scale.setScalar(scale);group.position.copy(center).multiplyScalar(-scale);scene.add(group);
+   reset.current=()=>{camera.position.set(7,3.3,9);controls.target.set(0,0,0);controls.update();};reset.current();controls.minDistance=4;controls.maxDistance=18;Loading(false);
+  },undefined,()=>{if(alive){Error('A szörnymodell nem tölthető be.');Loading(false);}});
+  const resize=()=>{const w=Math.max(el.clientWidth,1),h=Math.max(el.clientHeight,1);renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();};const observer=new ResizeObserver(resize);observer.observe(el);resize();camera.position.set(7,3.3,9);
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let frame=0;function draw(){frame=requestAnimationFrame(draw);controls.autoRotate=options.current.rotate&&!reduced;controls.update();renderer.render(scene,camera);}draw();
+  return()=>{alive=false;cancelAnimationFrame(frame);observer.disconnect();controls.dispose();if(model)disposeModel(model);for(const m of materials)m.dispose();texture?.dispose();renderer.dispose();renderer.domElement.remove();reset.current=()=>{};};
  },[]);
- return <div className="monster-viewer"><div ref={host} className="monster-stage" role="img" aria-label="Blue-Eyes White Dragon valódi, körbeforgatható, stilizált 3D-modellje"/>{error&&<p role="alert">{error}</p>}<div className="viewerbuttons"><button className="secondary" aria-pressed={rotate} onClick={()=>Rotate(v=>!v)}>Körbeforgatás</button><button className="secondary" aria-pressed={animate} onClick={()=>Animate(v=>!v)}>{animate?'Animáció leállítása':'Animáció indítása'}</button><button className="secondary" onClick={()=>reset.current()}>Alaphelyzet</button></div><p className="viewerhint">Húzd a forgatáshoz · Görgess vagy csippents a nagyításhoz</p><p className="foildisclaimer">Saját 3D-modell · Referenciák alapján átdolgozva · Blue-Eyes White Dragon</p></div>;
+ return <div className="monster-viewer"><div className="monster-stage-wrap"><div ref={host} className="monster-stage" role="img" aria-label="Blue-Eyes White Dragon színes textúrázott 3D-modellje"/>{loading&&<p className="monster-loading" role="status">Színes 3D-modell betöltése…</p>}</div>{error&&<p role="alert">{error}</p>}<div className="viewerbuttons"><button className="secondary" aria-pressed={rotate} onClick={()=>Rotate(v=>!v)}>{rotate?'Forgatás leállítása':'Körbeforgatás'}</button><button className="secondary" onClick={()=>reset.current()}>Alaphelyzet</button></div><p className="viewerhint">Húzd a forgatáshoz · Görgess vagy csippents a nagyításhoz</p><p className="foildisclaimer">Modell: Nick / fetters_admin · UV: Zerox · Textúra: metaldodomon / The Falsebound Kingdom. Nem hivatalos modell; statikus póz.</p></div>;
 }
