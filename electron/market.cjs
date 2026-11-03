@@ -12,6 +12,19 @@ class Market{
  record(id,day){const p=this.prices?.get(id);if(!p)return;const h=this.state.history[id]||[];const point={date:day,trend:euro(p.trend),avg1:euro(p.avg1)};const i=h.findIndex(v=>v.date===day);if(i<0)h.push(point);else h[i]=point;this.state.history[id]=h.sort((a,b)=>a.date.localeCompare(b.date)).slice(-1100);}
  async link(card,source){if(!card||typeof card.key!=='string'||card.key.length>500||!card.name||typeof source!=='string')throw Error('Érvénytelen lap vagy termék.');source=source.trim();let id;if(/^\d{1,9}$/.test(source))id=Number(source);else{let url;try{url=new URL(source);}catch{throw Error('Másold be a pontos kiadás Cardmarket-linkjét vagy termékazonosítóját.');}if(url.protocol!=='https:'||!['www.cardmarket.com','cardmarket.com'].includes(url.hostname)||!url.pathname.startsWith('/en/YuGiOh/Products/'))throw Error('Angol nyelvű Yu-Gi-Oh! Cardmarket-terméklink szükséges.');id=Number(url.searchParams.get('idProduct'));if(!id){const r=await this.fetcher(url.href,{signal:AbortSignal.timeout(20000),redirect:'error'});if(!r.ok)throw Error('A Cardmarket nem engedte a link azonosítását. Add meg a termék számszerű azonosítóját.');const html=await r.text();const ids=[...html.matchAll(/(?:data-idproduct|data-product-id|"idProduct")\s*[:=]\s*["']?(\d+)/gi)].map(m=>Number(m[1]));const unique=[...new Set(ids)];if(unique.length!==1)throw Error('A link nem azonosítható biztosan. Add meg a Cardmarket-termék számszerű azonosítóját.');id=unique[0];}}
  const {data}=await this.download('products.json',BASE+'productList/products_singles_3.json','products');const product=data.products.find(p=>p.idProduct===id);if(!product||norm(product.name)!==norm(card.name))throw Error('Ez a termék nem a kiválasztott laphoz tartozik.');await this.refresh();this.state.links[card.key]={id,name:product.name};this.record(id,this.day);this.write('history.json',this.state);return this.get(card.key);}
+ async verifiedEuropean(card,edition='Nem jelölt'){
+  // Explicit verified printing, never infer region from product order or price.
+  const identity='Legend of Blue Eyes White Dragon — Európa (2002, LOB-E)|LOB-E001|Ultra Rare';
+  if(card?.key!==identity||card.code!=='LOB-E001'||norm(card.name)!==norm('Blue-Eyes White Dragon')||card.rarity!=='Ultra Rare')return null;
+  if(!require('./market-search.cjs').editions.includes(edition))throw Error('Érvénytelen kiadás.');
+  const {data}=await this.download('products.json',BASE+'productList/products_singles_3.json','products');
+  const product=data.products.find(p=>p.idProduct===577919);
+  if(!product||product.idExpansion!==1064||product.idCategory!==5||norm(product.name)!==norm(card.name))throw Error('A hitelesített európai Cardmarket-termék adatai megváltoztak.');
+  await this.refresh();const key=card.key+'|'+edition;
+  this.state.links[key]={id:577919,name:product.name,edition,verifiedRegion:'LOB-E V.1'};
+  this.record(577919,this.day);this.write('history.json',this.state);
+  return {...await this.get(key),edition,priceScope:'all-editions',source:'Cardmarket · hivatalos árlista'};
+ }
  async automatic(card,edition='Nem jelölt',chosen){
  const {editions}=require('./market-search.cjs');if(!editions.includes(edition))throw Error('Érvénytelen kiadás.');
  const key=card.key+'|'+edition;
