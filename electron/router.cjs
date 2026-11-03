@@ -11,7 +11,7 @@ function createRouter({root,store,userDirectory,fetchImage=fetch,getPriceKey=()=
    if(!['POST','DELETE'].includes(request.method))return json({error:'Érvénytelen művelet.'},405);
    const raw=await request.text();if(raw.length>4000)return json({error:'Túl nagy kérés.'},413);const body=JSON.parse(raw);
    if(request.method==='DELETE')return json(market.unlink(body.key));
-   if(body.automatic){const verified=await market.verifiedEuropean(body.card,body.edition);return json(verified||await priceAPI.automatic(body.card,body.edition,body.chosen));}
+   if(body.automatic){const verified=await market.verifiedEuropean(body.card,body.edition,body.refresh===true);return json(verified||await priceAPI.automatic(body.card,body.edition,body.chosen));}
    return json(await market.link(body.card,body.source));
   }
   if(url.pathname==='/api/collection'){
