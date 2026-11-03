@@ -1,5 +1,13 @@
 const fs=require('node:fs'),path=require('node:path');
 module.exports=async context=>{
+ // OBJ extensions are excluded by electron-builder. Verify the actual installed archive.
+ const asarPath=path.join(context.appOutDir,'resources','app.asar');
+ const asar=require('@electron/asar');
+ for(const asset of ['dist/models/blue-eyes/model.txt','dist/models/blue-eyes/color.png']){
+  let bytes;try{bytes=asar.extractFile(asarPath,asset);}catch{throw Error('Hiányzó 3D erőforrás a telepítőben: '+asset);}
+  if(!bytes||bytes.length<1000)throw Error('Üres vagy sérült 3D erőforrás: '+asset);
+ }
+
  const files=[],directories=[];
  function walk(dir,relative=''){for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const rel=path.join(relative,entry.name);if(entry.isDirectory()){directories.push(rel);walk(path.join(dir,entry.name),rel);}else files.push(rel);}}
  walk(context.appOutDir);

@@ -14,7 +14,7 @@ export default function MonsterScene(){
   let alive=true,model:T.Group|undefined,texture:T.Texture|undefined;const materials=new Set<T.Material>();
   function disposeModel(group:T.Group){group.traverse(o=>{if(o instanceof T.Mesh){o.geometry.dispose();for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});}
   const textureLoader=new T.TextureLoader();texture=textureLoader.load('/models/blue-eyes/color.png',t=>{t.colorSpace=T.SRGBColorSpace;t.anisotropy=renderer.capabilities.getMaxAnisotropy();},undefined,()=>{if(alive){Error('A modell színes textúrája nem tölthető be.');Loading(false);}});texture.colorSpace=T.SRGBColorSpace;
-  new OBJLoader().load('/models/blue-eyes/model.obj',group=>{
+  new OBJLoader().load('/models/blue-eyes/model.txt',group=>{
    if(!alive){disposeModel(group);for(const m of materials)m.dispose();return;}
    model=group;const mat=new T.MeshStandardMaterial({map:texture,color:0xffffff,metalness:.10,roughness:.57,side:T.DoubleSide});materials.add(mat);
    group.traverse(o=>{if(o instanceof T.Mesh){for(const m of Array.isArray(o.material)?o.material:[o.material])m.dispose();o.material=mat;}});
