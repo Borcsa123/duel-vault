@@ -3,8 +3,8 @@ module.exports=async context=>{
  // OBJ extensions are excluded by electron-builder. Verify the actual installed archive.
  const asarPath=path.join(context.appOutDir,'resources','app.asar');
  const asar=require('@electron/asar');
- for(const asset of ['dist/models/blue-eyes/model.txt','dist/models/blue-eyes/color.png']){
-  let bytes;try{bytes=asar.extractFile(asarPath,asset);}catch{throw Error('Hiányzó 3D erőforrás a telepítőben: '+asset);}
+ for(const asset of [path.join('dist','models','blue-eyes','model.txt'),path.join('dist','models','blue-eyes','color.png')]){
+  let bytes;try{bytes=asar.extractFile(asarPath,asset);}catch(error){throw Error('Hiányzó 3D erőforrás a telepítőben: '+asset+' ('+error.message+')');}
   if(!bytes||bytes.length<1000)throw Error('Üres vagy sérült 3D erőforrás: '+asset);
  }
 
