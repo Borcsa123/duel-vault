@@ -1,3 +1,4 @@
+import Card3D from './card-3d';
 import {useEffect,useMemo,useState} from 'react';
 type Card={id:string;name:string;set:string;code:string;rarity:string;finish:string;art:string;signed:boolean;image:string};
 type SetInfo={id:string;name:string;date:string;count:number};
@@ -13,6 +14,11 @@ async function json<T>(url:string,init?:RequestInit):Promise<T>{
 function CardImage({card,large=false}:{card:Card;large?:boolean}){
  const [failed,Fail]=useState(false);
  return !card.image||failed?<div className="rb-placeholder">Nincs elérhető lapkép</div>:<img src={picture(card,large?'full':'240w')} alt={card.name} loading={large?'eager':'lazy'} onError={()=>Fail(true)}/>;
+}
+function RiftboundCardViewer({card}:{card:Card}){
+ const [failed,Fail]=useState(false);
+ const image=picture(card,'full');
+ return image&&!failed?<Card3D image={image} name={card.name} rarity={card.rarity} riftboundFinish={card.finish} onImageError={()=>Fail(true)}/>:<div className="rb-placeholder">Nincs elérhető lapkép</div>;
 }
 export default function Riftbound(){
  const [catalog,Catalog]=useState<Catalog>(),[collection,Collection]=useState(empty),[selected,Select]=useState(''),[mode,Mode]=useState('all'),[query,Query]=useState(''),[rarity,Rarity]=useState(''),[owned,Owned]=useState('all'),[detail,Detail]=useState<Card>(),[limit,Limit]=useState(60),[busy,Busy]=useState(false),[error,ErrorText]=useState('');
@@ -49,6 +55,6 @@ export default function Riftbound(){
  {visible.length>limit&&<button className="secondary rb-more" onClick={()=>Limit(n=>n+60)}>További lapok betöltése</button>}
  <footer>Adatok: OpenRift · Kártyaképek: Riot Games · Nem hivatalos gyűjteménykezelő</footer>
  </>}
- {detail&&<div className="overlay" onClick={()=>Detail(undefined)}><section className="dialog rb-detail" role="dialog" aria-modal="true" aria-label={detail.name} onClick={e=>e.stopPropagation()}><button className="close" autoFocus aria-label="Bezárás" onClick={()=>Detail(undefined)}>×</button><CardImage key={detail.id} card={detail} large/><div><h2>{detail.name}</h2><p>{detail.code} · {variant(detail)}</p>{controls(detail)}{error&&<p role="alert">{error}</p>}</div></section></div>}
+ {detail&&<div className="overlay" onClick={()=>Detail(undefined)}><section className="dialog rb-detail" role="dialog" aria-modal="true" aria-label={detail.name} onClick={e=>e.stopPropagation()}><button className="close" autoFocus aria-label="Bezárás" onClick={()=>Detail(undefined)}>×</button><RiftboundCardViewer key={detail.id} card={detail}/><div><h2>{detail.name}</h2><p>{detail.code} · {variant(detail)}</p>{controls(detail)}{error&&<p role="alert">{error}</p>}</div></section></div>}
  </main>;
 }
