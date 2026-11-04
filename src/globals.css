@@ -91,3 +91,11 @@ aside{overflow-y:auto}.sidebottom{flex-shrink:0;padding-bottom:4px}
 .monster-open{width:100%;margin-top:18px;justify-content:center}.monster-return{margin-bottom:12px}
 
 .monster-stage-wrap{position:relative}.monster-loading{position:absolute;inset:45% 0 auto;text-align:center;color:#d9e9f7;pointer-events:none}
+
+/* Shared game selection and Riftbound collection */
+.dv-game-switch{display:flex;justify-content:center;gap:8px;padding:9px;background:#171a20;border-bottom:1px solid #333846}
+.dv-game-switch button,.rb-actions button{border:1px solid #444a59;border-radius:8px;background:#252a35;color:#ecedf3;padding:6px 12px;cursor:pointer}
+.dv-game-switch button[aria-pressed=true],.rb-actions button[aria-pressed=true]{background:#d5b276;color:#15171c;border-color:#d5b276}
+.rb{max-width:1480px;margin:0 auto;padding:24px 28px}.rb-heading h1{font-size:34px;margin:4px 0}.rb-heading p,.rb-result{color:#b9bdca}
+.rb-toolbar,.rb-stats{display:flex;align-items:end;flex-wrap:wrap;gap:12px;margin:14px 0}.rb-toolbar label{display:grid;gap:5px}.rb-toolbar select,.rb-toolbar input{min-height:36px;max-width:100%;background:#202530;color:#f2f3f8;border:1px solid #444a59;border-radius:8px;padding:5px 9px}.rb-stats span{background:#202530;padding:10px 14px;border-radius:8px}.rb-stats b{color:#e6c18a}
+.rb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(174px,1fr));gap:14px}.rb-grid article{background:#1b202a;border:1px solid #333947;border-radius:12px;padding:9px}.rb-card{display:grid;gap:5px;text-align:left;width:100%;border:0;background:none;color:inherit;cursor:pointer;padding:0}.rb-card img,.rb-placeholder{width:100%;aspect-ratio:5/7;object-fit:contain;border-radius:8px}.rb-placeholder{display:grid;place-items:center;background:#262d3a;padding:12px;text-align:center}.rb-card small{color:#b9bdca}.rb-actions{display:flex;gap:4px;align-items:center;flex-wrap:wrap;margin-top:9px}.rb-actions button{padding:4px 8px}.rb-actions button:disabled{opacity:.48;cursor:default}.rb-actions strong{min-width:19px;text-align:center}.rb-more{margin-top:16px}.rb footer{margin-top:24px}.rb-error{color:#ffb6ac}.rb-detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;max-width:820px;width:94vw}.rb-detail img{width:100%;max-height:75vh;object-fit:contain}

@@ -3,7 +3,7 @@ const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=
 function localImage(url){return typeof url==='string'?url.replace(/^https:\/\/images\.ygoprodeck\.com\/images\//,'/remote-images/'):url;}
 function imagePaths(value){if(Array.isArray(value))return value.map(imagePaths);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,(key==='image_url_small'||key==='image')?localImage(item):imagePaths(item)]));return value;}
 function json(value,status=200){return new Response(JSON.stringify(value),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}});}
-function createRouter({root,store,userDirectory,fetchImage=fetch,getPriceKey=()=>null}){const market=new (require('./market.cjs').Market)(userDirectory,fetchImage);const priceAPI=new (require('./price-api.cjs').PriceAPI)(userDirectory,{fetcher:fetchImage,getKey:getPriceKey});if(Object.keys(market.state.links).length)market.refresh().catch(()=>{});const timer=setInterval(()=>{if(Object.keys(market.state.links).length)market.refresh().catch(()=>{});},6*60*60*1000);timer.unref?.();return async function route(request){
+function createRouter({root,store,userDirectory,fetchImage=fetch,getPriceKey=()=>null}){let riftStore;const market=new (require('./market.cjs').Market)(userDirectory,fetchImage);const priceAPI=new (require('./price-api.cjs').PriceAPI)(userDirectory,{fetcher:fetchImage,getKey:getPriceKey});if(Object.keys(market.state.links).length)market.refresh().catch(()=>{});const timer=setInterval(()=>{if(Object.keys(market.state.links).length)market.refresh().catch(()=>{});},6*60*60*1000);timer.unref?.();return async function route(request){
  const url=new URL(request.url);if(url.hostname!=='duel-vault')return new Response('Not found',{status:404});
  try{
   if(url.pathname==='/api/market'){
@@ -13,6 +13,13 @@ function createRouter({root,store,userDirectory,fetchImage=fetch,getPriceKey=()=
    if(request.method==='DELETE')return json(market.unlink(body.key));
    if(body.automatic){const verified=await market.verifiedEuropean(body.card,body.edition,body.refresh===true);return json(verified||await priceAPI.automatic(body.card,body.edition,body.chosen));}
    return json(await market.link(body.card,body.source));
+  }
+  if(url.pathname==='/api/riftbound/collection'){
+   riftStore??=new (require('./store.cjs').Store)(path.join(userDirectory,'riftbound'));
+   if(request.method==='GET')return json(riftStore.snapshot());
+   if(!['POST','DELETE'].includes(request.method))return json({error:'Érvénytelen művelet.'},405);
+   const body=await request.text();if(body.length>20000)return json({error:'Túl nagy kérés.'},413);
+   return json(riftStore.mutate(request.method,JSON.parse(body)));
   }
   if(url.pathname==='/api/collection'){
    if(request.method==='GET')return json(imagePaths(store.snapshot()));
